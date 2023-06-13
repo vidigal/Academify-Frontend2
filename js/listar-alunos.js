@@ -3,6 +3,9 @@ $(document).ready(listarAlunos);
  function listarAlunos() {
 
     $.ajax({
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + btoa("victor:123456"));
+        },
         url: 'http://localhost:8080/api/aluno/list',
         type: 'get',
         dataType: 'json',
